@@ -13,7 +13,17 @@
       "Bash(python -c \"\nimport ast, sys\nfor f in ['app/rules.py', 'app/config.py', 'app/db.py', 'app/catalog.py', 'app/main.py', 'app/schemas.py', 'app/models.py']:\n    try:\n        ast.parse\\(open\\(f\\).read\\(\\)\\)\n        print\\(f'{f}: OK'\\)\n    except SyntaxError as e:\n        print\\(f'{f}: SYNTAX ERROR - {e}'\\)\n        sys.exit\\(1\\)\n\")",
       "Bash(python -c \"import ast; ast.parse\\(open\\('app/services.py'\\).read\\(\\)\\); print\\('services.py: OK'\\)\")",
       "Bash(git add:*)",
-      "Bash(python -c \"from app.models import QuestionVariant; print\\(''models OK''\\)\")"
+      "Bash(python -c \"from app.models import QuestionVariant; print\\(''models OK''\\)\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT p.slug, p.name, p.kind FROM programs p JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''state'' LIMIT 10;\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(*\\) FROM eligibility_rules er JOIN program_versions pv ON er.program_version_id=pv.id JOIN programs p ON pv.program_id=p.id JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''state'';\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT er.question_key, COUNT\\(*\\) as cnt FROM eligibility_rules er JOIN program_versions pv ON er.program_version_id=pv.id JOIN programs p ON pv.program_id=p.id JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''state'' GROUP BY er.question_key;\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT key, prompt FROM questions ORDER BY key;\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(*\\) FROM questions WHERE key=''state_code'';\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(*\\) FROM programs p JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''state'' AND p.kind != ''referral'';\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(*\\) FROM programs p JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''state'' AND p.kind <> ''referral'';\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(*\\) FROM programs p JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind = ''benefit'';\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(DISTINCT p.id\\) FROM programs p JOIN program_versions pv ON pv.program_id=p.id JOIN eligibility_rules er ON er.program_version_id=pv.id JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind=''benefit'';\")",
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT DISTINCT er.question_key FROM eligibility_rules er JOIN program_versions pv ON er.program_version_id=pv.id JOIN programs p ON pv.program_id=p.id JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind=''benefit'' ORDER BY er.question_key;\")"
     ]
   }
 }
