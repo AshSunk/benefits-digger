@@ -23,7 +23,8 @@
       "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(*\\) FROM programs p JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''state'' AND p.kind <> ''referral'';\")",
       "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(*\\) FROM programs p JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind = ''benefit'';\")",
       "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(DISTINCT p.id\\) FROM programs p JOIN program_versions pv ON pv.program_id=p.id JOIN eligibility_rules er ON er.program_version_id=pv.id JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind=''benefit'';\")",
-      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT DISTINCT er.question_key FROM eligibility_rules er JOIN program_versions pv ON er.program_version_id=pv.id JOIN programs p ON pv.program_id=p.id JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind=''benefit'' ORDER BY er.question_key;\")"
+      "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT DISTINCT er.question_key FROM eligibility_rules er JOIN program_versions pv ON er.program_version_id=pv.id JOIN programs p ON pv.program_id=p.id JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind=''benefit'' ORDER BY er.question_key;\")",
+      "Bash(python -c \":*)"
     ]
   }
 }
