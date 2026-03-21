@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/piere/benefits-digger -type f -name \"*.py\" | xargs wc -l | tail -1)",
+      "Bash(python3 -m py_compile /c/Users/piere/benefits-digger/app/main.py 2>&1)",
+      "Bash(python -m pytest tests/ -v 2>&1)",
+      "Bash(pip install:*)",
+      "Bash(where python:*)",
+      "Bash(python -c \"from app.rules import score_status, evaluate_matches_any, compare_scalar; print\\('score_status all fail:', score_status\\(['fail','fail']\\)\\); print\\('score_status mixed:', score_status\\(['pass','fail']\\)\\); print\\('score_status all pass:', score_status\\(['pass','pass']\\)\\); print\\('score_status unknown+pass:', score_status\\(['pass','unknown']\\)\\); print\\('score_status empty:', score_status\\([]\\)\\); print\\('compare_scalar float:', compare_scalar\\('1.0', 1.0\\)\\); print\\('evaluate_matches_any:', evaluate_matches_any\\('yes', ['yes','no']\\)\\)\" 2>&1)",
+      "Bash(python -c \"from app.catalog import slugify; print\\('normal:', slugify\\('Social Security'\\)\\); print\\('empty:', slugify\\(''\\)\\); print\\('special:', slugify\\('!!!###'\\)\\); print\\('collision test:', slugify\\(''\\) != slugify\\('###'\\)\\)\" 2>&1)",
+      "Bash(python -c \"from app.catalog import slugify; print\\('normal:', slugify\\('Social Security'\\)\\); print\\('empty:', slugify\\(''\\)\\); print\\('special:', slugify\\('***'\\)\\)\")",
+      "Bash(node --check C:/Users/piere/benefits-digger/app/static/app.js 2>&1)",
+      "Bash(python -c \"\nimport ast, sys\nfor f in ['app/rules.py', 'app/config.py', 'app/db.py', 'app/catalog.py', 'app/main.py', 'app/schemas.py', 'app/models.py']:\n    try:\n        ast.parse\\(open\\(f\\).read\\(\\)\\)\n        print\\(f'{f}: OK'\\)\n    except SyntaxError as e:\n        print\\(f'{f}: SYNTAX ERROR - {e}'\\)\n        sys.exit\\(1\\)\n\")",
+      "Bash(python -c \"import ast; ast.parse\\(open\\('app/services.py'\\).read\\(\\)\\); print\\('services.py: OK'\\)\")",
+      "Bash(git add:*)",
+      "Bash(python -c \"from app.models import QuestionVariant; print\\(''models OK''\\)\")"
+    ]
+  }
+}
