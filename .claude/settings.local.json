@@ -24,7 +24,15 @@
       "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(*\\) FROM programs p JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind = ''benefit'';\")",
       "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT COUNT\\(DISTINCT p.id\\) FROM programs p JOIN program_versions pv ON pv.program_id=p.id JOIN eligibility_rules er ON er.program_version_id=pv.id JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind=''benefit'';\")",
       "Bash(sqlite3 /c/Users/piere/benefits-digger/benefits_digger.db \"SELECT DISTINCT er.question_key FROM eligibility_rules er JOIN program_versions pv ON er.program_version_id=pv.id JOIN programs p ON pv.program_id=p.id JOIN jurisdictions j ON p.jurisdiction_id=j.id WHERE j.level=''federal'' AND p.kind=''benefit'' ORDER BY er.question_key;\")",
-      "Bash(python -c \":*)"
+      "Bash(python -c \":*)",
+      "Bash(sort -t: -k2 -n)",
+      "Bash(sed 's/.*\"\"\"\"match_rate\"\"\"\": //')",
+      "Read(//c/Users/piere/benefits-digger/**)",
+      "Bash(python3:*)",
+      "Bash(git stash:*)",
+      "Bash(python -m uvicorn app.main:app --reload --port 8000)",
+      "Bash(python -c \"from app.seed_data import QUESTION_VARIANTS; print\\(f''{len\\(QUESTION_VARIANTS\\)} variants''\\); [print\\(f\"\"  {v[''question_key'']}: {v[''depth_tier'']} -> {v[''input_type'']}\"\"\\) for v in QUESTION_VARIANTS]\")",
+      "Bash(python -c \"from app.normalizers import NORMALIZER_REGISTRY; print\\(list\\(NORMALIZER_REGISTRY.keys\\(\\)\\)\\)\")"
     ]
   }
 }
