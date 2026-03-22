@@ -32,7 +32,8 @@
       "Bash(git stash:*)",
       "Bash(python -m uvicorn app.main:app --reload --port 8000)",
       "Bash(python -c \"from app.seed_data import QUESTION_VARIANTS; print\\(f''{len\\(QUESTION_VARIANTS\\)} variants''\\); [print\\(f\"\"  {v[''question_key'']}: {v[''depth_tier'']} -> {v[''input_type'']}\"\"\\) for v in QUESTION_VARIANTS]\")",
-      "Bash(python -c \"from app.normalizers import NORMALIZER_REGISTRY; print\\(list\\(NORMALIZER_REGISTRY.keys\\(\\)\\)\\)\")"
+      "Bash(python -c \"from app.normalizers import NORMALIZER_REGISTRY; print\\(list\\(NORMALIZER_REGISTRY.keys\\(\\)\\)\\)\")",
+      "Bash(grep -E \"\\\\.py$|\\\\.js$|\\\\.json$|^d\")"
     ]
   }
 }
