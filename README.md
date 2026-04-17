@@ -15,6 +15,11 @@ Benefits Digger is a government-benefits screening platform that helps users ide
 - **Offline-capable** — seeds a local starter catalog so the app boots without network access
 - **Official links only** — all displayed sources and application paths point to `.gov` / `.mil` / `.us` domains
 
+### My Contributions
+* **Engineered** the high-performance JavaScript/CSS frontend and interactive geographic filters.
+* **Integrated** the Gemini API to power the adaptive questionnaire and recommendation engine.
+* **Deployed** the Zobo chatbot and multi-language support for enhanced accessibility.
+
 ## Tech Stack
 
 | Layer | Technology |
