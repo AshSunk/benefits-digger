@@ -21,16 +21,16 @@ Benefits Digger is a government-benefits screening platform that helps users ide
 * **Deployed** the Zobo chatbot and multi-language support for enhanced accessibility.
 
 ### 🏠 The Interface
-![Benefits Digger Home Page](assets/homess.png)
+![Benefits Digger Home Page](assets/homess.pf)
 
 ### ⚙️ Dynamic Screening in Action
 ![Benefits Digger Interactive Demo](assets/benefitsdigger.gif)
 
 ### 📊 Program Results
-![Benefits Digger Results Page](assets/resultsss.png)
+![Benefits Digger Results Page](assets/resultsss.pdf)
 
 ### 🎛️ User Dashboard
-![Benefits Digger Dashboard](assets/dashboardss.png)
+![Benefits Digger Dashboard](assets/dashboardss.pdf)
 
 ## Tech Stack
 
